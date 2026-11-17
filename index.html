@@ -45,7 +45,7 @@
   .nav.scrolled { background: rgba(255,253,248,.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(0,0,0,.06); padding: 12px 0; }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; }
   .mark { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: "Outfit", sans-serif; }
-  .mark svg { width: 50px; height: 48px; fill: var(--ink); transition: transform .4s cubic-bezier(.2,.9,.3,1.5); }
+  .mark svg { width: 36px; height: 35px; flex: none; fill: var(--ink); transition: transform .4s cubic-bezier(.2,.9,.3,1.5); }
   .mark:hover svg { transform: rotate(-12deg) scale(1.08); }
   .mark strong { display: block; font-weight: 900; font-size: 21px; letter-spacing: .5px; line-height: 1; }
   .mark small { display: block; font-size: 8.5px; letter-spacing: .4px; font-weight: 400; margin-top: 2px; }
@@ -150,7 +150,10 @@
   .skills .h2 .d-sq { background: var(--yellow-deep); opacity: .9; }
   .skills .h2 { color: #fff; }
   .skills .h2 .text { mix-blend-mode: normal; }
-  .skill-groups { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+  .skill-groups { display: grid; grid-template-columns: 2fr 4fr; gap: 40px 32px; }
+  .group-wide { grid-column: 1 / -1; }
+  @media (min-width: 992px) { .group-wide .gauges { grid-template-columns: repeat(6, 1fr); } }
+  @media (min-width: 992px) { .gauges { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 16px; } }
   .group h3 { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 3px; color: var(--yellow); margin-bottom: 22px; text-transform: uppercase; }
   .gauges { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 22px; }
   .gauge { background: #1d1d1d; border-radius: 24px; padding: 22px 14px 18px; text-align: center; transition: transform .3s, background .3s; }
@@ -160,10 +163,12 @@
   .gauge .fg { fill: none; stroke: var(--c, var(--yellow)); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 283; stroke-dashoffset: 283; transition: stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1); }
   .gauge .num { position: relative; margin-top: -84px; height: 64px; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 24px; margin-bottom: 20px; }
   .gauge .label { font-weight: 600; font-size: 16px; }
+  .gauge .lvl { margin-top: 4px; font-family: "Outfit", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--c, var(--yellow)); }
 
   /* experience */
   .exp-grid { display: grid; grid-template-columns: 330px 1fr; gap: 60px; align-items: start; }
   .exp-side { position: sticky; top: 110px; }
+  .exp-title { grid-column: 1 / -1; margin-bottom: 0; white-space: nowrap; font-size: clamp(28px, 9.5vw, 84px); }
   .exp-side p { color: var(--muted); max-width: 280px; }
   .meter { margin-top: 30px; height: 220px; width: 6px; border-radius: 6px; background: var(--cream); position: relative; overflow: hidden; }
   .meter i { position: absolute; inset: 0; background: var(--yellow-deep); transform-origin: top; transform: scaleY(0); }
@@ -242,9 +247,11 @@
     .wrap { padding: 0 20px; }
     .nav ul { display: none; }
     .floaty.tri, .floaty.sq { display: none; }
-    .h2 .d-tri, .h2 .d-sq { width: 56px; height: 56px; left: -20px; }
-    .h2 .d-hex { width: 64px; height: 70px; left: -24px; }
-    .h2 .d-circ { width: 64px; height: 64px; left: -20px; }
+    .h2 { padding-left: 26px; }
+    .h2 .d-tri, .h2 .d-sq { width: 56px; height: 56px; left: 0; }
+    .h2 .d-sq { left: 6px; }
+    .h2 .d-hex { width: 64px; height: 70px; left: 0; }
+    .h2 .d-circ { width: 64px; height: 64px; left: 0; }
     .floaty.hexa { bottom: auto; top: 46%; left: auto; right: -20px; }
     .hero { padding: 100px 0 90px; }
     .hero h1 .line:nth-child(2) span { text-shadow: 4px 4px 0 var(--ink); }
@@ -330,7 +337,7 @@
           <b>code apps.</b>
         </span>
       </div>
-      <p class="lead fade-in" style="animation-delay:.6s">A graphic designer turned front-end developer, blending Adobe Creative Suite and Figma with HTML, CSS, and a growing toolkit of JavaScript and SQL.</p>
+      <p class="lead fade-in" style="animation-delay:.6s">A graphic designer turned front-end developer, blending Adobe Creative Suite and Figma with HTML and CSS, using Claude as an AI partner to build faster, and learning the basics of JavaScript and SQL.</p>
       <div class="btns fade-in" style="animation-delay:.75s">
         <a class="btn btn-solid" href="https://blakeanglin2.wpcomstaging.com/" target="_blank" rel="noopener">View Portfolio
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -358,8 +365,8 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="track">
-    <span>HTML</span><span>CSS</span><span>FIGMA</span><span>ILLUSTRATOR</span><span>PHOTOSHOP</span><span>XD</span><span>JAVASCRIPT</span><span>SQL</span><span>SEO</span>
-    <span>HTML</span><span>CSS</span><span>FIGMA</span><span>ILLUSTRATOR</span><span>PHOTOSHOP</span><span>XD</span><span>JAVASCRIPT</span><span>SQL</span><span>SEO</span>
+    <span>HTML</span><span>CSS</span><span>FIGMA</span><span>ILLUSTRATOR</span><span>PHOTOSHOP</span><span>XD</span><span>JAVASCRIPT</span><span>SQL</span><span>CLAUDE</span><span>SEO</span><span>GEO</span>
+    <span>HTML</span><span>CSS</span><span>FIGMA</span><span>ILLUSTRATOR</span><span>PHOTOSHOP</span><span>XD</span><span>JAVASCRIPT</span><span>SQL</span><span>CLAUDE</span><span>SEO</span><span>GEO</span>
   </div>
 </div>
 
@@ -370,11 +377,12 @@
       <p class="statement" id="statement">I believe that my work is a reflection of my <mark>character.</mark> Self-motivated, task-oriented, and always <mark>learning.</mark></p>
       <div class="about-copy">
         <p class="reveal">I am a graphic designer who graduated from Rasmussen University with an associate's in graphic design.</p>
-        <p class="reveal" style="--d:.1s">For the past 4 years I've worked as a front-end developer learning web design and web development, with experience in Adobe Creative Suite, Figma, HTML, CSS, and entry-level knowledge of JavaScript and SQL.</p>
+        <p class="reveal" style="--d:.1s">For the past 4 years I've worked as a front-end developer learning web design and web development, with strong experience in Adobe Creative Suite, Figma, HTML and CSS. I also have a basic working knowledge of JavaScript and SQL and keep building on it.</p>
+        <p class="reveal" style="--d:.12s">I'm proficient in using Claude (Anthropic's AI) as a partner on design and development projects: planning layouts, writing and debugging HTML and CSS, building web blocks and app screens, and turning designs into working pages faster.</p>
         <div class="stats">
           <div class="stat reveal" style="--d:.15s"><b data-count="4">0</b><span>Years in web</span></div>
           <div class="stat reveal" style="--d:.25s"><b data-count="5">0</b><span>Roles held</span></div>
-          <div class="stat reveal" style="--d:.35s"><b data-count="6">0</b><span>Core tools</span></div>
+          <div class="stat reveal" style="--d:.35s"><b data-count="7">0</b><span>Core tools</span></div>
         </div>
       </div>
     </div>
@@ -388,17 +396,25 @@
       <div class="group">
         <h3>Design</h3>
         <div class="gauges">
-          <div class="gauge reveal" data-level="88" style="--c: var(--yellow)"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">Adobe Suite</div></div>
-          <div class="gauge reveal" data-level="73" style="--c: var(--mint); --d:.1s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">Figma</div></div>
+          <div class="gauge reveal" data-level="90" style="--c: var(--yellow)"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">Adobe Suite</div><div class="lvl">Advanced</div></div>
+          <div class="gauge reveal" data-level="70" style="--c: var(--mint); --d:.1s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">Figma</div><div class="lvl">Proficient</div></div>
         </div>
       </div>
       <div class="group">
         <h3>Code</h3>
         <div class="gauges">
-          <div class="gauge reveal" data-level="88" style="--c: var(--yellow)"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">HTML</div></div>
-          <div class="gauge reveal" data-level="81" style="--c: var(--mint); --d:.1s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">CSS</div></div>
-          <div class="gauge reveal" data-level="28" style="--c: #d9d5cc; --d:.2s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">JavaScript</div></div>
-          <div class="gauge reveal" data-level="28" style="--c: #d9d5cc; --d:.3s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">SQL</div></div>
+          <div class="gauge reveal" data-level="90" style="--c: var(--yellow)"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">HTML</div><div class="lvl">Advanced</div></div>
+          <div class="gauge reveal" data-level="80" style="--c: var(--mint); --d:.1s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">CSS</div><div class="lvl">Proficient</div></div>
+          <div class="gauge reveal" data-level="20" style="--c: #d9d5cc; --d:.2s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">JavaScript</div><div class="lvl">Basic</div></div>
+          <div class="gauge reveal" data-level="20" style="--c: #d9d5cc; --d:.3s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">SQL</div><div class="lvl">Basic</div></div>
+        </div>
+      </div>
+      <div class="group group-wide">
+        <h3>AI &amp; Search</h3>
+        <div class="gauges">
+          <div class="gauge reveal" data-level="60" style="--c: var(--yellow-deep); --d:0s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">Claude</div><div class="lvl">Intermediate</div></div>
+          <div class="gauge reveal" data-level="50" style="--c: var(--mint); --d:.1s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">SEO</div><div class="lvl">Intermediate</div></div>
+          <div class="gauge reveal" data-level="30" style="--c: #d9d5cc; --d:.2s"><svg viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="45"/><circle class="fg" cx="52" cy="52" r="45"/></svg><div class="num">0%</div><div class="label">GEO</div><div class="lvl">Basic</div></div>
         </div>
       </div>
     </div>
@@ -407,8 +423,8 @@
 
 <section class="block" id="experience">
   <div class="wrap exp-grid">
+    <h2 class="h2 display exp-title"><span class="deco d-hex"></span><small>03 — THE JOURNEY</small>EXPERIENCE</h2>
     <div class="exp-side">
-      <h2 class="h2 display"><span class="deco d-hex"></span><small>03 — THE JOURNEY</small>EXPERI&shy;ENCE</h2>
       <p>From running a comic shop floor to building websites and apps — every role sharpened how I lead, serve, and create.</p>
       <div class="meter" aria-hidden="true"><i></i></div>
     </div>
