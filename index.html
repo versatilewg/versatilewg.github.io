@@ -21,7 +21,7 @@
     --max: 1180px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
   body {
     background: var(--paper);
     color: var(--ink);
@@ -54,7 +54,9 @@
   .nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; border-radius: 3px; background: var(--yellow-deep); transform: scaleX(0); transition: transform .3s; }
   .nav ul a:hover::after, .nav ul a.active::after { transform: scaleX(1); }
   .nav-cta { display: none; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 14px; text-decoration: none; padding: 8px 16px; border: 3px solid var(--ink); border-radius: 99px; background: var(--yellow); }
-  @media (max-width: 767px) { .nav-cta { display: inline-block; } }
+  .nav-cta-wrap { display: none; gap: 6px; }
+  @media (max-width: 479px) { .nav-cta { font-size: 13px; padding: 6px 11px; } }
+  @media (max-width: 767px) { .nav-cta-wrap { display: flex; } .nav-cta { display: inline-block; } }
 
   /* ---------- hero ---------- */
   .hero {
@@ -314,8 +316,9 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="web-design.html">Web Design</a></li>
+      <li><a href="logo-design.html">Logo Design</a></li>
     </ul>
-    <a class="nav-cta" href="web-design.html">Web Design</a>
+    <span class="nav-cta-wrap"><a class="nav-cta" href="web-design.html">Web</a><a class="nav-cta" href="logo-design.html">Logos</a></span>
   </div>
 </nav>
 
@@ -345,7 +348,7 @@
       <div class="btns fade-in" style="animation-delay:.75s">
         <a class="btn btn-solid" href="web-design.html">View Web Design
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn btn-ghost" href="#experience">See Experience</a>
+        <a class="btn btn-ghost" href="logo-design.html">View Logo Design</a>
       </div>
     </div>
 
@@ -479,7 +482,7 @@
     <div class="btns reveal" style="--d:.15s">
       <a class="btn btn-solid" href="web-design.html">View Web Design
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="btn btn-ghost" href="#top">Back to Top</a>
+      <a class="btn btn-ghost" href="logo-design.html">View Logo Design</a>
     </div>
     <div class="foot">
       <span>© 2026 Blake Anglin</span>
