@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo Design · Blake Anglin</title>
+<meta name="description" content="Logo and brand identity portfolio of Blake Anglin: Versatile, Heavenly Perspective, Rooted &amp; Rising, Plumbers Near Me and Daryl Black.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F8D77F;
+    --yellow-deep: #F2C653;
+    --cream: #F5ECD7;
+    --grey: #9B978F;
+    --mint: #C9F7EA;
+    --ink: #111;
+    --muted: #4a4a4a;
+    --paper: #FFFDF8;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: "Hind", system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  img, video { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+  .display { font-family: "Outfit", sans-serif; font-weight: 900; line-height: .92; letter-spacing: -.5px; }
+
+  /* nav */
+  .progress { position: fixed; inset: 0 0 auto 0; height: 5px; background: var(--yellow-deep); transform-origin: left; transform: scaleX(0); z-index: 50; }
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 40; transition: background .3s, box-shadow .3s, padding .3s; padding: 22px 0; }
+  .nav.scrolled { background: rgba(255,253,248,.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(0,0,0,.06); padding: 12px 0; }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .mark { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: "Outfit", sans-serif; }
+  .mark svg { width: 36px; height: 35px; flex: none; fill: var(--ink); transition: transform .4s cubic-bezier(.2,.9,.3,1.5); }
+  .mark:hover svg { transform: rotate(-12deg) scale(1.08); }
+  .mark strong { display: block; font-weight: 900; font-size: 21px; letter-spacing: .5px; line-height: 1; }
+  .mark small { display: block; font-size: 8.5px; letter-spacing: .4px; font-weight: 400; margin-top: 2px; }
+  .nav ul { display: flex; gap: 30px; list-style: none; font-family: "Outfit", sans-serif; font-weight: 600; font-size: 15px; letter-spacing: .5px; }
+  .nav ul a { text-decoration: none; position: relative; padding: 4px 0; }
+  .nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; border-radius: 3px; background: var(--yellow-deep); transform: scaleX(0); transition: transform .3s; }
+  .nav ul a:hover::after, .nav ul a[aria-current]::after { transform: scaleX(1); }
+
+  /* hero */
+  .hero { background: var(--cream); position: relative; overflow: hidden; padding: 170px 0 110px; }
+  .eyebrow { font-family: "Outfit", sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 3px; color: var(--muted); display: flex; align-items: center; gap: 14px; }
+  .eyebrow::before { content: ""; width: 40px; height: 3px; background: var(--ink); border-radius: 3px; }
+  .hero h1 { font-size: clamp(64px, 13vw, 170px); margin: 18px 0 26px; }
+  .hero h1 span { display: inline-block; animation: lineUp .9s cubic-bezier(.2,.9,.3,1) both; }
+  .hero h1 .y { color: var(--yellow-deep); text-shadow: 6px 6px 0 var(--ink); animation-delay: .12s; }
+  .hero .lead { max-width: 560px; font-size: 20px; color: var(--muted); animation: fadeUp .8s ease .35s both; }
+  .index { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 38px; animation: fadeUp .8s ease .5s both; }
+  .index a { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 15px; text-decoration: none; padding: 10px 18px; border: 3px solid var(--ink); border-radius: 99px; background: var(--paper); transition: transform .25s, box-shadow .25s, background .25s; }
+  .index a b { color: var(--grey); margin-right: 6px; }
+  .index a:hover { background: var(--yellow); box-shadow: 5px 5px 0 var(--ink); transform: translate(-3px,-3px); }
+  .floaty { position: absolute; pointer-events: none; }
+  .f1 { right: 7%; top: 22%; width: 150px; height: 150px; border-radius: 50%; background: var(--yellow); animation: pop 1s cubic-bezier(.2,.9,.3,1.3) .3s both, bob 7s ease-in-out 1.3s infinite; }
+  .f2 { right: 19%; top: 52%; width: 90px; height: 90px; border-radius: 18px; background: var(--mint); animation: pop 1s cubic-bezier(.2,.9,.3,1.3) .45s both, spinSlow 18s linear infinite; }
+  .f3 { right: 4%; bottom: 12%; width: 70px; height: 78px; background: var(--grey); clip-path: polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%); animation: pop 1s cubic-bezier(.2,.9,.3,1.3) .6s both; }
+
+  /* project */
+  .project { padding: 120px 0; position: relative; }
+  .project:nth-of-type(even) { background: var(--cream); }
+  .p-head { display: grid; grid-template-columns: auto 1fr; gap: 10px 34px; align-items: end; margin-bottom: 46px; }
+  .p-num { font-family: "Outfit", sans-serif; font-weight: 900; font-size: clamp(70px, 10vw, 140px); line-height: .8; color: #e5dfd1; }
+  .project:nth-of-type(even) .p-num { color: var(--paper); }
+  .p-title h2 { font-size: clamp(40px, 6vw, 76px); }
+  .p-title .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag { font-family: "Outfit", sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 12px; border-radius: 99px; background: var(--ink); color: #fff; }
+  .tag.alt { background: var(--mint); color: var(--ink); }
+  .tag.alt2 { background: var(--yellow); color: var(--ink); }
+  .p-desc { grid-column: 2; max-width: 620px; color: var(--muted); margin-top: 10px; }
+
+  /* browser frame */
+  .browser { border-radius: 18px; background: #fff; box-shadow: 0 30px 60px -20px rgba(0,0,0,.25), 0 0 0 3px var(--ink); overflow: hidden; position: relative; }
+  .browser .bar { height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 16px; background: var(--ink); }
+  .browser .bar i { width: 11px; height: 11px; border-radius: 50%; background: #444; }
+  .browser .bar i:nth-child(1) { background: var(--yellow-deep); }
+  .browser .bar i:nth-child(2) { background: var(--mint); }
+  .browser .bar span { margin-left: 12px; flex: 1; max-width: 360px; height: 20px; border-radius: 99px; background: #2a2a2a; color: #aaa; font-size: 12px; line-height: 21px; padding: 0 12px; font-family: "Outfit", sans-serif; overflow: hidden; white-space: nowrap; }
+  .browser .screen { display: block; width: 100%; aspect-ratio: 1600 / 1015; object-fit: cover; object-position: top; background: #eee; border: 0; padding: 0; cursor: zoom-in; }
+  .browser .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+  /* scroll-on-hover tall shot */
+  .tall { position: relative; overflow: hidden; aspect-ratio: 1600 / 1015; cursor: zoom-in; }
+  .tall img { width: 100%; height: auto; transform: translateY(0); transition: transform 7s cubic-bezier(.45,0,.55,1); }
+  .tall:hover img, .tall.run img { transform: translateY(calc(-100% + var(--h, 500px))); }
+  .hint { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); font-family: "Outfit", sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 1.5px; background: var(--ink); color: #fff; border-radius: 99px; padding: 8px 14px; pointer-events: none; transition: opacity .3s; }
+  .tall:hover .hint, .tall.run .hint { opacity: 0; }
+
+  .duo { display: grid; grid-template-columns: 1fr 240px; gap: 40px; align-items: center; }
+  .phone { border-radius: 38px; padding: 12px; background: var(--ink); box-shadow: 0 30px 60px -20px rgba(0,0,0,.35); }
+  .phone .tall { aspect-ratio: 9 / 19.5; border-radius: 28px; }
+  .phone .tall img { transition-duration: 10s; }
+
+  /* thumbs */
+  .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px; margin-top: 30px; }
+  .thumb { border: 0; padding: 0; background: none; cursor: zoom-in; text-align: left; font: inherit; color: inherit; }
+  .thumb .img { border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 3px var(--ink); aspect-ratio: 16 / 10; transition: transform .3s, box-shadow .3s; background: #ddd; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s; }
+  .thumb:hover .img, .thumb:focus-visible .img { transform: translate(-3px,-3px); box-shadow: 0 0 0 3px var(--ink), 6px 6px 0 3px var(--yellow-deep); }
+  .thumb:hover img { transform: scale(1.05); }
+  .thumb span { display: block; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 14px; margin-top: 10px; }
+  .thumb:focus-visible { outline: none; }
+
+  /* lightbox */
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(17,17,17,.94); display: none; flex-direction: column; }
+  .lb.open { display: flex; animation: fadeIn .25s ease; }
+  .lb-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; color: #fff; font-family: "Outfit", sans-serif; gap: 16px; }
+  .lb-top b { font-weight: 800; font-size: 16px; }
+  .lb-top small { color: #aaa; font-size: 14px; margin-left: 10px; }
+  .lb-stage { flex: 1; overflow: auto; display: flex; justify-content: center; align-items: flex-start; padding: 0 70px 30px; overscroll-behavior: contain; }
+  .lb-stage img { max-width: min(1400px, 100%); height: auto; border-radius: 10px; margin: auto; }
+  .lb-stage img.tallimg { margin: 0 auto; }
+  .lb-btn { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--yellow); color: var(--ink); cursor: pointer; display: grid; place-items: center; transition: transform .2s; }
+  .lb-btn:hover { transform: scale(1.08); }
+  .lb-btn svg { width: 18px; height: 18px; }
+  .lb-prev, .lb-next { position: fixed; top: 50%; margin-top: -24px; }
+  .lb-prev { left: 14px; } .lb-next { right: 14px; }
+  .lb-close { background: #fff; }
+
+  /* CTA */
+  .cta { background: var(--yellow); text-align: center; padding: 120px 0 60px; position: relative; overflow: hidden; }
+  .cta .display { font-size: clamp(44px, 8vw, 110px); margin-bottom: 36px; }
+  .cta .display em { font-style: normal; color: var(--paper); text-shadow: 6px 6px 0 var(--ink); }
+  .btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 16px; letter-spacing: .5px; padding: 15px 26px; border-radius: 99px; text-decoration: none; border: 3px solid var(--ink); transition: transform .25s, box-shadow .25s, background .25s; }
+  .btn-solid { background: var(--ink); color: #fff; }
+  .btn-solid:hover { box-shadow: 6px 6px 0 var(--paper); transform: translate(-3px,-3px); }
+  .btn-ghost:hover { background: var(--paper); box-shadow: 6px 6px 0 var(--ink); transform: translate(-3px,-3px); }
+  .btn svg { width: 16px; transition: transform .25s; }
+  .btn:hover svg { transform: translateX(4px); }
+  .foot { margin-top: 90px; display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; flex-wrap: wrap; gap: 12px; }
+  .big-v { position: absolute; width: 380px; height: 366px; right: 4%; top: 50%; margin-top: -183px; opacity: .1; fill: var(--ink); animation: sway 9s ease-in-out infinite; pointer-events: none; }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @keyframes lineUp { from { transform: translateY(60%); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } }
+  @keyframes pop { from { transform: scale(0); } }
+  @keyframes bob { 50% { transform: translateY(-16px); } }
+  @keyframes spinSlow { to { transform: rotate(360deg); } }
+  @keyframes blink { 50% { opacity: .2; } }
+  @keyframes sway { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg) translateY(-10px); } }
+
+  @media (max-width: 991px) {
+    .wrap { padding: 0 28px; }
+    .duo { grid-template-columns: 1fr 200px; gap: 26px; }
+    .f2 { display: none; }
+  }
+  @media (max-width: 767px) {
+    body { font-size: 17px; }
+    .wrap { padding: 0 20px; }
+    .nav ul { gap: 18px; font-size: 14px; }
+    .nav ul li.hide-sm { display: none; }
+    .hero { padding: 130px 0 80px; }
+    .f1 { width: 90px; height: 90px; right: -20px; top: 16%; }
+    .f3 { display: none; }
+    .project { padding: 80px 0; }
+    .p-head { grid-template-columns: 1fr; gap: 6px; }
+    .p-desc { grid-column: 1; }
+    .duo { grid-template-columns: 1fr; }
+    .phone { width: 220px; margin: 0 auto; }
+    .thumbs { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .lb-stage { padding: 0 12px 80px; }
+    .lb-prev, .lb-next { top: auto; bottom: 16px; margin: 0; }
+    .lb-prev { left: calc(50% - 60px); } .lb-next { right: calc(50% - 60px); }
+    .big-v { width: 220px; height: 212px; right: 12px; top: auto; bottom: 60px; margin: 0; }
+    .browser .bar span { display: none; }
+  }
+  @media (max-width: 479px) {
+    .mark small { display: none; }
+    .nav ul { gap: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* logo boards */
+  .board { display: block; width: 100%; border: 0; padding: 0; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -20px rgba(0,0,0,.25), 0 0 0 3px var(--ink); cursor: zoom-in; aspect-ratio: 16 / 9; transition: transform .35s, box-shadow .35s; }
+  .board img { width: 100%; height: 100%; object-fit: cover; }
+  .board:hover { transform: translate(-4px,-4px); box-shadow: 0 30px 60px -20px rgba(0,0,0,.25), 0 0 0 3px var(--ink), 10px 10px 0 3px var(--yellow-deep); }
+  .thumb .img { aspect-ratio: 16 / 9; }
+  .thumb img { object-position: center; }
+  .swatches { display: flex; gap: 8px; margin-top: 16px; }
+  .swatches i { width: 26px; height: 26px; border-radius: 50%; box-shadow: 0 0 0 2px var(--ink); }
+  @media (max-width: 479px) { .nav ul { gap: 12px; font-size: 13px; } }
+</style>
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="vmark"><path d="M233.55,118.2l1.29-22.35,1.33-23.04c.16-2.84-2.98-4.65-5.35-3.09l-19.29,12.68-18.71,12.29c-2.46,1.62-1.91,5.37.92,6.21,6.39,1.88,15.23,4.67,18.77,6.71s10.38,8.3,15.2,12.9c2.13,2.03,5.66.64,5.83-2.31Z"/><path d="M225.84,127.38l-7.65-7.48c-1.53-1.5-4.06-1.15-5.13.7l-32.61,56.49c-.57.99-.57,2.21,0,3.2l4.34,7.52c.54.94,1.03,1.89,1.47,2.86,1.08,2.39,4.38,2.6,5.7.32l34.43-59.63c.75-1.3.52-2.93-.55-3.98Z"/><path d="M199.02,108.82l-10.31-2.88c-1.44-.4-2.97.22-3.72,1.52l-22.37,38.74c-.57.99-.57,2.21,0,3.2l6.07,10.52c1.23,2.13,4.31,2.13,5.54,0l26.73-46.31c1.07-1.85.11-4.22-1.95-4.79Z"/><path d="M175.94,190.51l-61.92-107.25c-7.4-12.82-23.95-17.25-36.77-9.85h0c-12.82,7.4-17.25,23.95-9.85,36.77l61.92,107.25c7.4,12.82,23.95,17.25,36.77,9.85,12.82-7.4,17.25-23.95,9.85-36.77ZM90.45,107.94c-6.46,0-11.69-5.23-11.69-11.69s5.23-11.69,11.69-11.69,11.69,5.23,11.69,11.69-5.23,11.69-11.69,11.69ZM154.23,218.42c-6.46,0-11.69-5.23-11.69-11.69s5.23-11.69,11.69-11.69,11.69,5.23,11.69,11.69-5.23,11.69-11.69,11.69Z"/></g></defs></svg>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="Versatile — back to resume">
+      <svg viewBox="62 66 182 176" aria-hidden="true"><use href="#vmark"/></svg>
+      <span><strong>VERSATILE</strong><small>WEB &amp; GRAPHIC DESIGN</small></span>
+    </a>
+    <ul>
+      <li><a href="index.html">Resume</a></li>
+      <li><a href="web-design.html">Web</a></li>
+      <li><a href="logo-design.html" aria-current="page">Logos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="floaty f1"></div><div class="floaty f2"></div><div class="floaty f3"></div>
+  <div class="wrap">
+    <p class="eyebrow">PORTFOLIO</p>
+    <h1 class="display"><span>LOGO</span> <span class="y">DESIGN</span></h1>
+    <p class="lead">Logos and brand identities, from the first sketch to colors, type, patterns and mockups. Click any page to see it full size.</p>
+    <nav class="index" aria-label="Projects">
+      <a href="#versatile"><b>01</b>Versatile</a>
+      <a href="#heavenly-perspective"><b>02</b>Heavenly Perspective</a>
+      <a href="#rooted-rising"><b>03</b>Rooted &amp; Rising</a>
+      <a href="#plumbers-near-me"><b>04</b>Plumbers Near Me</a>
+      <a href="#daryl-black"><b>05</b>Daryl Black</a>
+    </nav>
+  </div>
+</header>
+
+<main id="projects"></main>
+
+<footer class="cta">
+  <svg class="big-v" viewBox="62 66 182 176" aria-hidden="true"><use href="#vmark"/></svg>
+  <div class="wrap">
+    <h2 class="display reveal">LIKE WHAT<br>YOU <em>SEE?</em></h2>
+    <div class="btns reveal" style="--d:.15s">
+      <a class="btn btn-solid" href="index.html">View My Resume
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn-ghost" href="web-design.html">View Web Design</a>
+    </div>
+    <div class="foot">
+      <span>© 2026 Blake Anglin</span>
+      <span>Front-End Developer · Web &amp; Graphic Design</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-top">
+    <div><b class="lb-title"></b><small class="lb-count"></small></div>
+    <button class="lb-btn lb-close" type="button" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="lb-stage"><img alt=""></div>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous"><svg viewBox="0 0 16 16"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next"><svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+
+<script>
+(() => {
+  const P = 'work/logos/';
+  const pages = (n) => Array.from({ length: n }, (_, i) => 'p' + String(i + 1).padStart(2, '0') + '.jpg');
+  const projects = [
+    { key: 'versatile', name: 'Versatile', cover: 0, tags: ['Brand Identity', 'Brand Guide', '13 Pages'],
+      colors: ['#F8D77F', '#C9F7EA', '#FFF5EA', '#111'],
+      desc: 'My own brand. The V is a Swiss Army knife, a tool made for many jobs, and its blade is a digital pencil for design and creativity. Rounded corners and bright colors keep it friendly and open.',
+      labels: ['Cover', 'Brand Guidelines', 'Logo Overview', 'Logo', 'Color Palette', 'Logo Variations', 'Typography', 'Patterns', 'Mockups', 'Apparel', 'Signage', 'Iconography', 'Tagline'] },
+    { key: 'heavenly-perspective', name: 'Heavenly Perspective', cover: 0, tags: ['Logo', 'Badge', '8 Pages'],
+      colors: ['#2B0A0A', '#8A3B3B', '#C9AE72', '#EAE6DF'],
+      desc: 'A rustic badge logo for a Christian photography company. The mountains stand for God’s creation, and the sun behind them is also a camera lens.',
+      labels: ['Logo', 'Overview', 'Logo Breakdown', 'Color Palette', 'Logo Variations', 'Typography', 'Iconography & Pattern', 'Mockups'] },
+    { key: 'rooted-rising', name: 'Rooted & Rising', cover: 1, tags: ['Logo', 'Brand Identity', '10 Pages'],
+      colors: ['#1E4D14', '#3E8A2E', '#C8F0B4', '#D6ECF7'],
+      desc: 'A friendly mark built from three ideas: the earth for travel, roots shaped like a brain for growth and mental health, and a person for youth.',
+      labels: ['Goal of Logo', 'Logo', 'Breakdown: Earth', 'Breakdown: Roots', 'Breakdown: Person', 'Colors', 'Logo Type Examples', 'Iconography & Patterns', 'Fonts', 'Mockups'] },
+    { key: 'plumbers-near-me', name: 'Plumbers Near Me', cover: 0, tags: ['Logo', 'Brand Identity', '9 Pages'],
+      colors: ['#2F6DB5', '#001C31', '#FF9331', '#FBE5CC'],
+      desc: 'A map pin that is also a water drop, so the logo says “plumber” and “nearby” at once. Blue and orange pipe patterns carry it onto uniforms and the work van.',
+      labels: ['Logo Mark', 'Logo', 'Logo Breakdown', 'Logo Variations', 'Color Palette', 'Typography', 'Pattern', 'Apparel', 'Vehicle Wrap'] },
+    { key: 'daryl-black', name: 'Daryl Black', cover: 0, tags: ['Logo', 'Monogram', '8 Pages'],
+      colors: ['#1F3A2B', '#4A2523', '#C49A3A', '#EFE8D2'],
+      desc: 'A personal brand monogram that joins a lowercase b and an uppercase D. Deep green, burgundy and gold with a classic serif give it a royal, elegant, luxury feel.',
+      labels: ['Logo', 'Key Features', 'Logo Breakdown', 'Color Palette', 'Typography', 'Logo Variations', 'Iconography & Patterns', 'Mockups'] }
+  ];
+  const sets = {};
+  const esc = s => s.replace(/&/g, '&amp;');
+  const main = document.getElementById('projects');
+  projects.forEach((p, n) => {
+    const files = pages(p.labels.length);
+    sets[p.key] = { name: p.name, items: files.map((f, i) => [p.key + '/' + f, p.labels[i]]) };
+    const num = String(n + 1).padStart(2, '0');
+    const tags = p.tags.map((t, i) => '<span class="tag' + (i === 1 ? ' alt' : i === 2 ? ' alt2' : '') + '">' + t + '</span>').join('');
+    const sw = p.colors.map(c => '<i style="background:' + c + '"></i>').join('');
+    const s = document.createElement('section');
+    s.className = 'project'; s.id = p.key;
+    s.innerHTML =
+      '<div class="wrap">' +
+        '<div class="p-head reveal"><div class="p-num">' + num + '</div>' +
+          '<div class="p-title"><h2 class="display">' + esc(p.name).toUpperCase() + '</h2><div class="tags">' + tags + '</div></div>' +
+          '<div class="p-desc"><p>' + p.desc + '</p><div class="swatches" aria-hidden="true">' + sw + '</div></div></div>' +
+        '<button class="board reveal" style="--d:.1s" type="button" data-open="' + p.key + '" data-i="' + p.cover + '" aria-label="Open ' + esc(p.name) + ' ' + p.labels[p.cover] + ' full size">' +
+          '<img src="' + P + p.key + '/' + files[p.cover] + '" alt="' + esc(p.name) + ' logo"' + (n ? ' loading="lazy"' : '') + '></button>' +
+        '<div class="thumbs" data-set="' + p.key + '"></div>' +
+      '</div>';
+    main.appendChild(s);
+  });
+  if (location.hash) { const t = document.querySelector(location.hash); if (t) requestAnimationFrame(() => t.scrollIntoView()); }
+
+  /* build thumbnails */
+  document.querySelectorAll('.thumbs').forEach(box => {
+    const key = box.dataset.set;
+    sets[key].items.forEach(([src, label], i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'thumb reveal'; b.style.setProperty('--d', (i * .06) + 's');
+      b.dataset.open = key; b.dataset.i = i;
+      b.setAttribute('aria-label', 'Open ' + sets[key].name + ' ' + label + ' full size');
+      b.innerHTML = '<div class="img"><img src="' + P + src + '" alt="" loading="lazy"></div><span>' + label + '</span>';
+      box.appendChild(b);
+    });
+  });
+
+  /* lightbox */
+  const lb = document.querySelector('.lb'), img = lb.querySelector('.lb-stage img'), stage = lb.querySelector('.lb-stage');
+  let cur = null, idx = 0, last = null;
+  function show() {
+    const [src, label] = sets[cur].items[idx];
+    img.src = P + src; img.alt = sets[cur].name + ' ' + label;
+    lb.querySelector('.lb-title').textContent = sets[cur].name + ' · ' + label;
+    lb.querySelector('.lb-count').textContent = (idx + 1) + ' / ' + sets[cur].items.length;
+    stage.scrollTop = 0;
+  }
+  function open(key, i, from) { cur = key; idx = +i; last = from; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.lb-close').focus(); }
+  function close() { lb.classList.remove('open'); document.body.style.overflow = ''; img.removeAttribute('src'); if (last) last.focus(); }
+  function step(d) { const n = sets[cur].items.length; idx = (idx + d + n) % n; show(); }
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-open]');
+    if (t) open(t.dataset.open, t.dataset.i, t);
+  });
+  lb.querySelector('.lb-close').onclick = close;
+  lb.querySelector('.lb-prev').onclick = () => step(-1);
+  lb.querySelector('.lb-next').onclick = () => step(1);
+  stage.addEventListener('click', e => { if (e.target === stage) close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+  let sx = null;
+  stage.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1); sx = null; });
+
+
+  /* reveal */
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('in'); io.unobserve(en.target);
+  }), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* nav + progress */
+  const bar = document.querySelector('.progress'), nav = document.querySelector('.nav');
+  const onScroll = () => {
+    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    nav.classList.toggle('scrolled', y > 30);
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+</script>
+</body>
+</html>
